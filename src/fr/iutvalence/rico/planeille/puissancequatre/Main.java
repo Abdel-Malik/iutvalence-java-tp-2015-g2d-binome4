@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Game game = new Game();
+		/*Game game = new Game();
 		Player J1 = game.getPlayers().get(0);
 		Player J2 = game.getPlayers().get(1);
 		Piece winner = game.play();
@@ -19,7 +19,10 @@ public class Main {
 			else
 				System.out.println(J2);
 			
-		}
+		}*/
+		
+		
+		IHMP4 window = new IHMP4();
 	}
 
 }
