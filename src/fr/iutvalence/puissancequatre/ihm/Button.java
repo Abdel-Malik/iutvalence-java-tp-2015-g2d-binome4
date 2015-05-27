@@ -4,16 +4,15 @@ import javax.swing.JButton;
 
 public class Button extends JButton {
 
-	private int ColumnNumber;
+	private int columnNumber;
 	
 	public Button(int ColumnNumber){
 		
-		this.ColumnNumber = ColumnNumber;
+		this.columnNumber = ColumnNumber;
 		
 	}
 	
-	public void setPiece(Player currentPlayer){
-		
-		
+	public int getColumnNumber(){
+		return this.columnNumber;		
 	}
 }

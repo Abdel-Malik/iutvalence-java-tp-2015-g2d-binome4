@@ -87,7 +87,6 @@ public class Game {
 	 * @return the winner color or emptysquare for draw 
 	 * 
 	 */
-
 	public Piece play()
 	
 	{

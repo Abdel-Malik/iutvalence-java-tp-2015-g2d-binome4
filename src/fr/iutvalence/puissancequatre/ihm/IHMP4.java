@@ -2,6 +2,8 @@ package fr.iutvalence.puissancequatre.ihm;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,7 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
 
-public class IHMP4 extends JFrame{
+public class IHMP4 extends JFrame {
 	
 	private Button[] column;
 	private JButton[] colorCase;
@@ -19,10 +21,12 @@ public class IHMP4 extends JFrame{
 	private JPanel gameZone;
 	private JSplitPane gameBoard;
 	private Game currentGame;
+	private int lastColumnChoosen;
 	
 	public IHMP4() {
 		
 		this.currentGame = new Game();
+		this.lastColumnChoosen = 0;
 		
 		this.setTitle("Puissance 4");
 		this.setSize(350, 350);
@@ -45,6 +49,14 @@ public class IHMP4 extends JFrame{
 	    	this.column[numberOfButton] = new Button(numberOfButton);
 	    	this.column[numberOfButton].setText(""+(char)(numberOfButton+49));
 	    	this.buttonPanel.add(column[numberOfButton]);
+	    	this.column[numberOfButton].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 	    }
 	    
 	    this.gameBoard.setTopComponent(this.buttonPanel);
@@ -60,7 +72,6 @@ public class IHMP4 extends JFrame{
 	    for(int numberOfCase = 0; numberOfCase < 42; numberOfCase++){
 	    	colorCase[numberOfCase] = new JButton();
 	    	this.gameZone.add(this.colorCase[numberOfCase]);
-	    	colorCase[numberOfCase].setBackground(new Color(75, 123, 12));
 	    	colorCase[numberOfCase].setEnabled(false);
 	    }
 	    
@@ -77,9 +88,15 @@ public class IHMP4 extends JFrame{
 		for(int abscisse = 0; abscisse < 6; abscisse++){
 			for(int ordonnee = 0; ordonnee < 7; ordonnee++){
 				if(this.currentGame.getGrid().getGrid()[abscisse][ordonnee] == Piece.EMPTYSQUARE){
-					this.colorCase[numberOfCase].setBackground(new Color(125, 125, 125));
-					numberOfCase++;
+					this.colorCase[numberOfCase].setBackground(new Color(125,125, 125));
 				}
+				if(this.currentGame.getGrid().getGrid()[abscisse][ordonnee] == Piece.REDPIECE){
+					this.colorCase[numberOfCase].setBackground(new Color(120,0, 0));
+				}
+				if(this.currentGame.getGrid().getGrid()[abscisse][ordonnee] == Piece.YELLOWPIECE){
+					this.colorCase[numberOfCase].setBackground(new Color(120,0, 0));
+				}
+				numberOfCase++;
 			}
 		}
 	}
