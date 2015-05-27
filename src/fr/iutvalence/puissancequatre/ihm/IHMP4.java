@@ -1,5 +1,6 @@
-package fr.iutvalence.rico.planeille.puissancequatre;
+package fr.iutvalence.puissancequatre.ihm;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -13,7 +14,7 @@ import javax.swing.JTable;
 public class IHMP4 extends JFrame{
 	
 	private Button[] column;
-	private JPanel[] colorCase;
+	private JButton[] colorCase;
 	private JPanel buttonPanel;
 	private JPanel gameZone;
 	private JSplitPane gameBoard;
@@ -22,12 +23,13 @@ public class IHMP4 extends JFrame{
 		
 		this.setTitle("Puissance 4");
 		this.setSize(300, 300);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    this.gameBoard = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 	    this.gameBoard.setDividerLocation(50);
+	    this.gameBoard.setDividerSize(0);
 	    this.gameBoard.enable(false);
 	    
 	    
@@ -38,7 +40,7 @@ public class IHMP4 extends JFrame{
 	    
 	    for(int numberOfButton = 0; numberOfButton < 7; numberOfButton++){
 	    	this.column[numberOfButton] = new Button(numberOfButton);
-	    	//this.column[numberOfButton].setLabel((String)numberOfButton+1);
+	    	this.column[numberOfButton].setLabel(""+numberOfButton+1);
 	    	this.buttonPanel.add(column[numberOfButton]);
 	    }
 	    
@@ -50,11 +52,13 @@ public class IHMP4 extends JFrame{
 	    
 	    this.gameZone.setLayout(new GridLayout(6,7));
 	    
-	    this.colorCase = new JPanel[42];
+	    this.colorCase = new JButton[42];
 	    
 	    for(int numberOfCase = 0; numberOfCase < 42; numberOfCase++){
-	    	colorCase[numberOfCase] = new JPanel();
+	    	colorCase[numberOfCase] = new JButton();
 	    	this.gameZone.add(this.colorCase[numberOfCase]);
+	    	colorCase[numberOfCase].setBackground(new Color(75, 123, 12));
+	    	colorCase[numberOfCase].setEnabled(false);
 	    }
 	  
 	    this.gameBoard.setBottomComponent(this.gameZone);

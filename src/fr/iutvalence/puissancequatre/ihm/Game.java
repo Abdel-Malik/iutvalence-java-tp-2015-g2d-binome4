@@ -1,4 +1,4 @@
-package fr.iutvalence.rico.planeille.puissancequatre;
+package fr.iutvalence.puissancequatre.ihm;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner; 

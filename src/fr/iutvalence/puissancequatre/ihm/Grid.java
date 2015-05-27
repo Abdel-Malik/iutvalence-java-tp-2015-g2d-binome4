@@ -1,4 +1,4 @@
-package fr.iutvalence.rico.planeille.puissancequatre;
+package fr.iutvalence.puissancequatre.ihm;
 
 /**
  * Grid of the game.

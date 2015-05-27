@@ -4,4 +4,4 @@
  * @author Rico Simon, Planeille Bastien
  * @version 1.0.0
  */
-package fr.iutvalence.rico.planeille.puissancequatre;
+package fr.iutvalence.puissancequatre.ihm;
