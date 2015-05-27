@@ -106,6 +106,9 @@ public class Grid {
 		return this.grid[verifyLine][verifyColumn].equals(this.grid[verifyLineNext][verifyColumnNext]);
 	}
 	
+	public Piece[][] getGrid(){
+		return this.grid;
+	}
 
     @Override
     /**

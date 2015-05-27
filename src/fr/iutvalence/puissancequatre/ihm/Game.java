@@ -76,11 +76,18 @@ public class Game {
 			}
 	}
 	
+	
+	
+	public Grid getGrid(){
+		return this.grid;
+	}
+	
 	/**
 	 * Play the game
 	 * @return the winner color or emptysquare for draw 
 	 * 
 	 */
+
 	public Piece play()
 	
 	{
