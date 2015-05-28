@@ -26,6 +26,11 @@ public class Game {
 	private Grid grid ;
 	
 	/**
+	 * boolean for know if the game is end. 
+	 */
+	private boolean win;
+	
+	/**
 	 * Contructor of game
 	 */
 	public Game()
@@ -35,6 +40,7 @@ public class Game {
 		 */
 		Random rand = new Random();
         int firstPlayerIndice = rand.nextInt(1);
+        this.win = false;
         this.playerTurn = Piece.REDPIECE;
 		if (firstPlayerIndice == 0)
 			this.playerTurn = Piece.YELLOWPIECE;
@@ -76,6 +82,13 @@ public class Game {
 			}
 	}
 	
+	public String getCurrentPlayer(){
+		if(this.playerTurn == Piece.REDPIECE){
+			return "Red player";
+		}else{
+			return "Yellow player";
+		}
+	}
 	
 	
 	public Grid getGrid(){
@@ -135,6 +148,45 @@ public class Game {
 		if (win)
 			return this.playerTurn;
 		return Piece.EMPTYSQUARE;
+			
+		
+	}
+	
+	public boolean play(int columnNumber){
+		
+		int turnCounter = 0;
+		int line = 0;
+		boolean inGrid = false;
+		
+		if(!win && turnCounter != 42)
+		{
+			
+			//System.out.println(" choose the column : ");
+			
+			int column = columnNumber;
+			
+			/**
+			 * verify the colum choice, if it is in the grid
+			 */
+			try
+			{
+				inGrid = true;
+				line = this.grid.stack(column-1,playerTurn);
+			}catch(FullColumnException e){
+				inGrid = false;
+				//new PopUp("Illegal column Choice, try again!");
+				return false;
+			}
+			win = this.grid.search4Piece(line,column-1);
+			
+			if (win){
+				new PopUp( this.playerTurn + " win");
+			}
+			this.changeTurn();
+		}
+		
+		
+		return true;
 			
 		
 	}
